@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 10mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            background-color: #ffffff;
+            padding: 15px;
+            font-size: 9pt;
+            line-height: 1.3;
+        }
+        
+        .header {
+            background: #ffffff;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #274B7E;
+        }
+        
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .header-left {
+            font-size: 9pt;
+            color: #333;
+            width: 25%;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .header-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .header-center h1 {
+            font-size: 18pt;
+            color: #274B7E;
+            margin-bottom: 2px;
+            text-align: center;
+        }
+        
+        .header-center .subtitle {
+            font-size: 9pt;
+            color: #555;
+            text-align: center;
+        }
+        
+        .header-right {
+            width: 25%;
+            text-align: right;
+            vertical-align: top;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #274B7E 0%, #40874B 100%);
+            color: #ffffff;
+            padding: 10px 20px;
+            margin: 20px 0 10px 0;
+            font-size: 12pt;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+        
+        .executive-summary {
+            background-color: #f8f8f8;
+            border-left: 4px solid #274B7E;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+        
+        .executive-summary.daily-news {
+            border-left-color: #40874B;
+        }
+        
+        .executive-summary strong {
+            color: #274B7E;
+            font-weight: 600;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .grid-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #ffffff;
+            position: relative;
+        }
+        
+        .grid-item.risk-critical {
+            border-left: 3px solid #d32f2f;
+        }
+        
+        .grid-item.risk-high {
+            border-left: 3px solid #ff6f00;
+        }
+        
+        .grid-item.risk-moderate {
+            border-left: 3px solid #274B7E;
+        }
+        
+        .grid-item.daily-news {
+            border-left: 3px solid #40874B;
+        }
+        
+        .risk-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 7pt;
+            line-height: 1;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .daily-badge {
+            background-color: #40874B;
+        }
+        
+        .news-category {
+            font-size: 7.5pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            padding-right: 140px;
+        }
+        
+        .news-title {
+            font-size: 10pt;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .news-title a {
+            text-decoration: none;
+            color: #d32f2f;
+        }
+        
+        .news-title.daily a {
+            color: #274B7E;
+        }
+        
+        .news-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .impact-section {
+            margin-bottom: 8px;
+        }
+        
+        .impact-section strong {
+            display: block;
+            font-size: 8pt;
+            color: #274B7E;
+            margin-bottom: 4px;
+        }
+        
+        .impact-section p {
+            font-size: 8.5pt;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .source-info {
+            font-size: 7.5pt;
+            color: #888;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .source-info a {
+            color: #274B7E;
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 10px;
+            padding-top: 8px;
+            background: linear-gradient(135deg, #274B7E 0%, #40874B 100%);
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 8pt;
+            color: #ffffff;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    <div><strong>13 January 2026</strong></div>
+                    <div>Generated at 12:53 AM</div>
+                </td>
+                <td class="header-center">
+                    <h1>Risk Intelligence Digest</h1>
+                    <div class="subtitle">Executive Early Warning System</div>
+                </td>
+                <td class="header-right">
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- RISK ALERTS SECTION -->
+    <div class="section-header">🚨 CRITICAL RISK ALERTS</div>
+    <div class="executive-summary">
+        <strong>Executive Summary:</strong>
+
+A total of <strong>17 high-risk alerts</strong> have been identified, with critical implications across regulatory, credit, and operational domains. The <strong>top risk themes</strong> include:  
+1. <strong>Regulatory Risks</strong>: Multiple alerts highlight increased scrutiny by the RBI, including disclosure mandates for NPAs and defaulters' lists (e.g., involving RBL, Yes Bank, and others), and potential policy changes affecting NBFCs like Sundaram Finance and Muthoot Finance.  
+2. <strong>Credit Risks</strong>: A sharp rise in <strong>unsecured lending</strong>, reaching ₹46.9 lakh crore, as flagged by the SBI report, poses systemic risks, particularly in the <strong>used car and personal loan segments</strong>.  
+3. <strong>Operational Risks</strong>: Fraudulent activities, such as the ₹1,550 crore cyber fraud in Surat and property fraud in Tamil Nadu, underscore vulnerabilities in <strong>cybersecurity</strong> and <strong>document verification processes</strong>.  
+
+Geographically, <strong>Tamil Nadu</strong> and <strong>Gujarat</strong> require immediate attention due to concentrated operational risks, while the <strong>used car financing sector</strong> faces potential global credit challenges. Strategic actions are needed to mitigate exposure to <strong>unsecured lending</strong> and strengthen compliance with evolving <strong>regulatory frameworks</strong>.
+    </div>
+    <div class="grid-container">
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 8/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://lawyerenews.com/legal_detail/medium-enterprises-also-protected-against-foreclosure-charges-calcutta-high-court-orders-refund-for-msme-borrower-penalized-for-prepaying-loan" target="_blank">Medium Enterprises Also Protected Against Foreclosure Charges: Calcutta High Court Orders Refund for MSME Borrower Penalized for Prepaying Loan - Lawyer E News</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The Calcutta High Court has ruled that banks cannot levy foreclosure charges on floating rate loans given to MSMEs, including medium enterprises, as per RBI's 2014 circular. This decision reinforces borrower protections and mandates refunds for prepayment penalties deemed illegal. The ruling highlights the precedence of RBI circulars over contractual clauses and could have sector-wide implications for NBFCs and banks offering similar loans to MSMEs. Institutions may need to review and align their practices to avoid regulatory non-compliance.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://lawyerenews.com/legal_detail/medium-enterprises-also-protected-against-foreclosure-charges-calcutta-high-court-orders-refund-for-msme-borrower-penalized-for-prepaying-loan" target="_blank" style="color:#274B7E;text-decoration:underline;">Lawyer E News</a> | 2026-01-12 08:30:24</div>
+            
+        </div>
+        
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://www.whalesbook.com/news/English/BankingFinance/Budget-2026-Gold-Loan-NBFCs-Urge-Priority-Status-UPI-Credit-Lines/6964ff0848839f428383635f" target="_blank">Budget 2026: Gold Loan NBFCs Urge Priority Status, UPI Credit Lines - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Gold loan NBFCs, including Muthoot Finance, are advocating for significant policy changes in the upcoming Union Budget 2026. Key proposals include granting Priority Sector Status (PSL) to gold loan NBFCs, enabling competitive credit access, and introducing a gold-linked credit line via UPI to enhance financial inclusion. These measures, if enacted, could reshape the competitive landscape by lowering borrowing costs and expanding credit availability. The proposals also aim to align exposure limits and simplify tax provisions for retail NCD investors, potentially increasing funding options for the sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/BankingFinance/Budget-2026-Gold-Loan-NBFCs-Urge-Priority-Status-UPI-Credit-Lines/6964ff0848839f428383635f" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-12 14:07:16</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Credit</div>
+            <h3 class="news-title"><a href="https://www.zeebiz.com/personal-finance/banking/news-unsecure-lending-by-banks-surges-to-rs-469-lakh-crore-raising-risk-sensitivity-sbi-report-387659" target="_blank">Unsecure lending by banks surges to Rs 46.9 lakh crore, raising risk sensitivity: SBI report - Zee Business</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>A State Bank of India report highlights a significant rise in unsecured lending by banks, reaching Rs 46.9 lakh crore in FY25, with its share in total lending increasing to 24.5%. This structural shift raises concerns about potential credit risk due to the lack of collateral backing. While the Reserve Bank of India has noted that higher-quality borrowers dominate this segment, the rapid growth in unsecured advances could have medium-term implications for credit quality across the financial sector, including NBFCs.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.zeebiz.com/personal-finance/banking/news-unsecure-lending-by-banks-surges-to-rs-469-lakh-crore-raising-risk-sensitivity-sbi-report-387659" target="_blank" style="color:#274B7E;text-decoration:underline;">Zee Business</a> | 2026-01-12 07:30:38</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.tribuneindia.com/news/bank-risk/unsecure-lending-by-banks-surge-to-rs-46-9-lakh-crore-raising-risk-sensitivity-sbi-report" target="_blank" style="color:#274B7E;text-decoration:underline;">Tribune India</a></em></div>
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market</div>
+            <h3 class="news-title"><a href="https://www.marketsmojo.com/news/stock-recommendation/bandhan-bank-ltd-is-rated-sell-3786823" target="_blank">Bandhan Bank Ltd. is Rated Sell - MarketsMojo</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>MarketsMojo has issued a 'Sell' rating for Bandhan Bank Ltd., citing significant financial headwinds despite its good quality grade and attractive valuation. The bank reported a sharp decline in profitability, with a 270.4% drop in profit before tax and a 78.2% fall in net profit after tax as of September 2025. These trends, coupled with a low credit-deposit ratio of 85.15%, may indicate challenges in lending activity and financial stability. This development is relevant to the broader financial sector and private banking space.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.marketsmojo.com/news/stock-recommendation/bandhan-bank-ltd-is-rated-sell-3786823" target="_blank" style="color:#274B7E;text-decoration:underline;">MarketsMojo</a> | 2026-01-12 13:09:36</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://www.thehindu.com/business/Industry/four-banks-move-cic-against-rbi-nod-to-disclose-npas-defaulters-list-under-rti/article70498252.ece" target="_blank">Four banks move CIC against RBI nod to disclose NPAs, defaulters’ list under RTI - The Hindu</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Four major banks, including RBL Bank, have challenged the RBI's decision to disclose sensitive information such as defaulters' lists, NPAs, and inspection reports under the RTI Act. This case highlights potential regulatory shifts in transparency norms, which could impact the broader financial sector. The outcome may set a precedent for disclosure obligations, relevant to NBFCs and lending institutions.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.thehindu.com/business/Industry/four-banks-move-cic-against-rbi-nod-to-disclose-npas-defaulters-list-under-rti/article70498252.ece" target="_blank" style="color:#274B7E;text-decoration:underline;">The Hindu</a> | 2026-01-12 03:47:00</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://tmv.in/article/sbi-bob-rbl-yes-bank-move-cic-to-block-rti-release-of-npa-and-inspection-data-date=2026-01-12" target="_blank">SBI, BoB, RBL, Yes Bank Move CIC to Block RTI Release of NPA and Inspection Data - tmv.in</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Four major banks, including RBL Bank, have approached the Central Information Commission (CIC) to block RTI disclosures related to NPAs, defaulters, and RBI inspection data. The banks argue that such disclosures could harm commercial interests and lead to reputational risks. While this does not directly involve NBFCs, the regulatory focus on transparency in loan management and supervisory practices could have sector-wide implications, particularly for lenders handling small-ticket loans or digital lending platforms.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://tmv.in/article/sbi-bob-rbl-yes-bank-move-cic-to-block-rti-release-of-npa-and-inspection-data-date=2026-01-12" target="_blank" style="color:#274B7E;text-decoration:underline;">tmv.in</a> | 2026-01-12 00:02:43</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Credit</div>
+            <h3 class="news-title"><a href="https://www.aol.com/articles/americans-underwater-car-loans-theyre-130027554.html" target="_blank">Americans are underwater on car loans. They're buying new cars anyway. - AOL.com</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The rising trend of negative equity in car loans in the US highlights a potential credit risk scenario for the used car financing segment globally. With 28.1% of trade-ins having negative equity and average shortfalls reaching record highs, this reflects consumer willingness to absorb losses to upgrade vehicles. While this is a US-specific trend, it underscores the importance of monitoring vehicle depreciation, borrower behavior, and interest rate impacts in the used car loan market, which may have sector-wide relevance for NBFCs engaged in similar portfolios.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.aol.com/articles/americans-underwater-car-loans-theyre-130027554.html" target="_blank" style="color:#274B7E;text-decoration:underline;">AOL.com</a> | 2026-01-12 06:46:32</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Operational</div>
+            <h3 class="news-title"><a href="https://english.gujaratsamachar.com/news/gujarat/cyber-fraud-case-worth-1-550-cr-busted-in-surat-udhna-police-arrest-4-44285564338.html" target="_blank">Cyber fraud case worth ₹1,550-cr busted in Surat, Udhna police arrest 4 - GujaratSamachar English</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>A significant cyber fraud case worth ₹1,550 crore has been uncovered in Surat, involving mule bank accounts and SIM cards supplied to international cybercrime syndicates. The investigation revealed suspicious transactions in a Bandhan Bank account, with funds allegedly routed through multiple channels and converted into cryptocurrency. While this case highlights vulnerabilities in banking systems, it serves as a sector-wide reminder of the importance of robust KYC processes and monitoring mechanisms to prevent misuse of accounts for fraudulent activities.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://english.gujaratsamachar.com/news/gujarat/cyber-fraud-case-worth-1-550-cr-busted-in-surat-udhna-police-arrest-4-44285564338.html" target="_blank" style="color:#274B7E;text-decoration:underline;">GujaratSamachar English</a> | 2026-01-12 08:17:15 | Surat</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://legal.economictimes.indiatimes.com/amp/news/regulators/rbi-advocates-disclosure-of-npa-inspection-info-banks-oppose-matters-in-cic/126477405" target="_blank">RBI advocates disclosure of NPA, inspection info; banks oppose; matters in CIC - ETLegalWorld.com</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The Reserve Bank of India (RBI) has advocated for greater transparency by directing banks to disclose information on defaulters, NPAs, penalties, and inspection reports under the RTI Act. Major banks, including Yes Bank, have opposed this directive and escalated the matter to the Central Information Commission (CIC). The outcome of this case could have sector-wide implications for regulatory compliance, operational transparency, and depositor confidence in the banking system.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://legal.economictimes.indiatimes.com/amp/news/regulators/rbi-advocates-disclosure-of-npa-inspection-info-banks-oppose-matters-in-cic/126477405" target="_blank" style="color:#274B7E;text-decoration:underline;">ETLegalWorld.com</a> | 2026-01-12 06:30:43</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Credit</div>
+            <h3 class="news-title"><a href="https://www.whalesbook.com/news/English/BankingFinance/SBI-Report-Flags-Soaring-Unsecured-Loans-Credit-Concentration-Risks-for-Indian-Banks/6964ead148839f42838340ab" target="_blank">SBI Report Flags Soaring Unsecured Loans, Credit Concentration Risks for Indian Banks - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>A State Bank of India research report highlights systemic risks in the Indian banking sector due to a sharp rise in unsecured loans and geographic concentration of deposits and credit. Unsecured advances now account for 24.5% of total loans, raising concerns about potential credit risk accumulation. While public and private sector banks are the primary contributors, the findings are relevant to the broader lending ecosystem, including NBFCs, given the sector's exposure to unsecured lending trends. Geographic disparities in credit-deposit ratios also underline uneven financial penetration, which could influence regional credit demand and risk profiles.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/BankingFinance/SBI-Report-Flags-Soaring-Unsecured-Loans-Credit-Concentration-Risks-for-Indian-Banks/6964ead148839f42838340ab" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-12 12:43:59</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market</div>
+            <h3 class="news-title"><a href="https://asianbankingandfinance.net/lending-credit/news/mufg-invests-43b-in-indias-shriram-finance" target="_blank">MUFG invests $4.3b in India’s Shriram Finance - Asian Banking & Finance</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>MUFG Bank's $4.3 billion investment in Shriram Finance, acquiring a 20% equity stake, signals a strategic partnership aimed at accelerating the NBFC's growth. This positions Shriram Finance, the second-largest retail NBFC in India, to potentially expand its market presence, especially in rural and semi-urban areas. The development highlights increased foreign interest in India's NBFC sector, which could intensify competition and influence market dynamics.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://asianbankingandfinance.net/lending-credit/news/mufg-invests-43b-in-indias-shriram-finance" target="_blank" style="color:#274B7E;text-decoration:underline;">Asian Banking & Finance</a> | 2026-01-12 02:42:32</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Operational</div>
+            <h3 class="news-title"><a href="https://meyka.com/blog/january-12-vellore-property-fraud-probe-flags-dtcp-certificate-risks-1201/" target="_blank">January 12: Vellore Property Fraud Probe Flags DTCP Certificate Risks - Meyka</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The Vellore property fraud involving forged DTCP certificates highlights operational risks for lenders and developers in Tamil Nadu. Stricter scrutiny of land documents may delay loan disbursals, project timelines, and property registrations. Lenders may need to implement additional verification processes, potentially increasing compliance costs and extending approval timelines. This sector-wide issue underscores the importance of robust document checks to mitigate risks in property-backed lending.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://meyka.com/blog/january-12-vellore-property-fraud-probe-flags-dtcp-certificate-risks-1201/" target="_blank" style="color:#274B7E;text-decoration:underline;">Meyka</a> | 2026-01-12 10:11:22</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Credit</div>
+            <h3 class="news-title"><a href="https://m.economictimes.com/industry/banking/finance/banking/banking-sector-bigger-but-rising-unsecured-loans-and-credit-concentration-pose-risks/articleshow/126484006.cms" target="_blank">Banking sector bigger, but rising unsecured loans and credit concentration pose risks - The Economic Times</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>A State Bank of India report highlights systemic risks in the banking sector, including a surge in unsecured loans and high credit and deposit concentration in just ten districts. These trends could signal potential vulnerabilities in credit quality and regional economic imbalances. While public sector banks are regaining market share, the findings are relevant for NBFCs and other lenders monitoring credit distribution and regional disparities.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://m.economictimes.com/industry/banking/finance/banking/banking-sector-bigger-but-rising-unsecured-loans-and-credit-concentration-pose-risks/articleshow/126484006.cms" target="_blank" style="color:#274B7E;text-decoration:underline;">The Economic Times</a> | 2026-01-12 12:04:58</div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- DAILY NEWS SECTION -->
+    <div class="section-header page-break">📰 DAILY FINANCE & POLITICAL NEWS UPDATE</div>
+    <div class="executive-summary daily-news">
+        <strong>Executive Summary</strong>:  
+A total of <strong>34 significant updates</strong> were captured, with key themes emerging around <strong>regulatory changes</strong>, <strong>competitor moves</strong>, and <strong>economic signals</strong>. The <strong>RBI's push for increased transparency</strong> in NPA disclosures and its updated list of upper-layer NBFCs by 2026 signal heightened regulatory oversight, which could impact operational strategies for NBFCs like TVS Credit. Competitor activity includes <strong>Kotak Mahindra Bank's leadership restructuring</strong>, indicating a focus on digital transformation, and <strong>Bajaj Housing Finance's ₹508.5 crore NCD issuance</strong>, strengthening its funding base. Additionally, <strong>India's proposed cybersecurity compliance for smartphone manufacturers</strong> and the <strong>7% decline in home sales</strong> highlight potential shifts in the consumer durable and housing loan markets. These developments underscore the need for proactive risk management and strategic alignment to capitalize on emerging opportunities.
+    </div>
+    <div class="grid-container">
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Natural Calamity | Geographic: Himalayan Region, Coastal Areas</div>
+            <h3 class="news-title daily"><a href="https://www.globalissues.org/amp/news/2026/01/12/42086" target="_blank">Experts Urge Rapid Adaptation as India Braces for ‘Stronger’ Cyclones, Quakes - Global Issues.org</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>India has upgraded its seismic zonation map, placing the entire Himalayan arc in the highest risk category, while cyclones in South Asia are becoming stronger and more destructive due to climate change. This signals heightened vulnerability for infrastructure and livelihoods in key geographies relevant to lending and economic activity. Monitoring disaster preparedness and potential impacts on agricultural and rural lending segments is critical.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.globalissues.org/amp/news/2026/01/12/42086" target="_blank" style="color:#274B7E;text-decoration:underline;">Global Issues.org</a> | 2026-01-12 11:08:29</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Regulatory Change | All Products</div>
+            <h3 class="news-title daily"><a href="https://www.thehindubusinessline.com/money-and-banking/rbis-new-upper-layer-list-could-include-nbfcs-promoted-by-banks-strong-promoters/article70497817.ece" target="_blank">RBI’s new upper layer list could include NBFCs promoted by banks, strong promoters - BusinessLine</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The RBI is expected to update its list of upper layer NBFCs by mid-2026, potentially adding entities backed by large banks and strong promoters, such as Sundaram Finance, Hero Fincorp, and Poonawalla Fincorp. Upper layer NBFCs face stricter regulatory scrutiny and must list on stock exchanges within three years if unlisted. This development signals increased oversight for systemically significant NBFCs, which could influence competitive dynamics and compliance requirements in our sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.thehindubusinessline.com/money-and-banking/rbis-new-upper-layer-list-could-include-nbfcs-promoted-by-banks-strong-promoters/article70497817.ece" target="_blank" style="color:#274B7E;text-decoration:underline;">BusinessLine</a> | 2026-01-11 23:32:54</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Regulatory Change | All Products</div>
+            <h3 class="news-title daily"><a href="https://www.business-standard.com/finance/news/rbi-bars-resident-indians-from-issuing-credit-guarantees-to-nris-126011201269_1.html" target="_blank">RBI bars resident Indians from issuing credit guarantees to NRIs - Business Standard</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The RBI has barred resident Indians from issuing credit guarantees to NRIs. This policy change could impact lending institutions that rely on guarantees from resident individuals for loans extended to NRIs. Our sector should monitor potential ripple effects on credit demand and guarantee structures involving NRIs, as well as any clarifications or additional guidelines from RBI.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.business-standard.com/finance/news/rbi-bars-resident-indians-from-issuing-credit-guarantees-to-nris-126011201269_1.html" target="_blank" style="color:#274B7E;text-decoration:underline;">Business Standard</a> | 2026-01-12 15:38:22</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Competitor Move | All Products</div>
+            <h3 class="news-title daily"><a href="https://www.marcamoney.com/kotak-mahindra-bank-appoints-anup-kumar-saha-as-whole-time-director/" target="_blank">Kotak Mahindra Bank appoints Anup Kumar Saha as Whole-time Director - MarcaMoney</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Kotak Mahindra Bank has appointed Anup Kumar Saha, a seasoned leader with expertise in consumer banking, data analytics, and digital transformation, as Whole-time Director (Designate). His previous roles at Bajaj Finance and ICICI Bank highlight his capability in scaling retail finance and driving innovation. This move signals Kotak's focus on strengthening its leadership in customer-centric transformation and digital strategies, which could intensify competition in retail lending and digital financial services. Monitoring Kotak's strategic initiatives under Anup's leadership will be critical for assessing competitive dynamics in the sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.marcamoney.com/kotak-mahindra-bank-appoints-anup-kumar-saha-as-whole-time-director/" target="_blank" style="color:#274B7E;text-decoration:underline;">MarcaMoney</a> | 2026-01-12 09:09:02</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.thehansindia.com/amp/business/kotak-mahindra-bank-strengthens-leadership-team-with-appointment-of-anup-kumar-saha-as-whole-time-director-1038853" target="_blank" style="color:#274B7E;text-decoration:underline;">The Hans India</a></em></div>
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Competitor Move | Gold Loan / All Products</div>
+            <h3 class="news-title daily"><a href="https://scanx.trade/stock-market-news/orders-deals/manappuram-finance-stock-rises-4-following-clarification-on-bain-capital-deal-reports/29742508" target="_blank">Manappuram Finance Stock Rises 4% Following Clarification on Bain Capital Deal Reports - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Manappuram Finance's stock rose by 4% following clarification on reports of a potential Bain Capital deal. This indicates possible strategic activity involving significant investment or partnership. Monitoring developments is crucial as it could impact competitive dynamics in the gold loan segment and broader NBFC sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/orders-deals/manappuram-finance-stock-rises-4-following-clarification-on-bain-capital-deal-reports/29742508" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-12 05:51:16</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Competitor Move | Two Wheeler / Geographic: Bengaluru, Mumbai, Chennai, Delhi NCR</div>
+            <h3 class="news-title daily"><a href="https://emobilityplus.com/2026/01/12/bijliride-unveils-franchise-model-to-expand-ev-two-wheeler-network-across-major-indian-cities/" target="_blank">Bijliride Unveils Franchise Model to Expand EV Two-Wheeler Network Across Major Indian Cities - EMobility+</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Bijliride has introduced a Franchise-Owned, Franchise-Operated (FOFO) model to expand its electric two-wheeler rental network across major Indian cities, targeting 5,000 EV deployments by FY2026. This move leverages local entrepreneurs and SMEs, supported by proprietary technology and financial partnerships. The expansion signals growing competition in the two-wheeler segment, particularly in clean mobility, with potential implications for traditional two-wheeler financing demand. Monitoring EV adoption trends and financing partnerships will be critical.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://emobilityplus.com/2026/01/12/bijliride-unveils-franchise-model-to-expand-ev-two-wheeler-network-across-major-indian-cities/" target="_blank" style="color:#274B7E;text-decoration:underline;">EMobility+</a> | 2026-01-12 06:51:45</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Competitor Move | Housing / LAP / All Products</div>
+            <h3 class="news-title daily"><a href="https://www.freepressjournal.in/business/bajaj-housing-finance-raises-5085-crore-via-ncds-locks-in-710-coupon-over-1008-day-tenure" target="_blank">Bajaj Housing Finance Raises ₹508.5 Crore Via NCDs, Locks In 7.10% Coupon Over 1,008-Day Tenure - Free Press Journal</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Bajaj Housing Finance has raised ₹508.5 crore via secured NCDs with a 7.10% coupon rate and a 1,008-day tenure, aimed at strengthening its funding base for retail and housing loans. This move indicates strategic capital mobilisation to support growth in housing finance, a segment relevant to our LAP and housing loan products. Monitoring competitor funding strategies and market positioning will be critical for assessing competitive dynamics in the housing finance sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.freepressjournal.in/business/bajaj-housing-finance-raises-5085-crore-via-ncds-locks-in-710-coupon-over-1008-day-tenure" target="_blank" style="color:#274B7E;text-decoration:underline;">Free Press Journal</a> | 2026-01-12 08:03:11</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 7/10</div>
+            <div class="news-category">Competitor Move | Two Wheeler / Used Car / Commercial Vehicle / Tractor / Geographic: Gujarat</div>
+            <h3 class="news-title daily"><a href="https://scanx.trade/stock-market-news/stocks/maruti-suzuki-india-approves-4-960-crore-land-acquisition-in-gujarat-for-capacity-expansion/29743179" target="_blank">Maruti Suzuki India approves ₹4,960 crore land acquisition in Gujarat for capacity expansion - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Maruti Suzuki India has approved a ₹4,960 crore land acquisition in Gujarat for capacity expansion. This signals potential growth in auto manufacturing in the region, which could drive demand for vehicle loans, including two-wheeler, used car, and commercial vehicle financing. Monitoring production timelines and potential ripple effects on lending demand in Gujarat is recommended.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/stocks/maruti-suzuki-india-approves-4-960-crore-land-acquisition-in-gujarat-for-capacity-expansion/29743179" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-12 06:15:18 | Gujarat, India</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://scanx.trade/stock-market-news/stocks/maruti-suzuki-approves-4-960-crore-land-acquisition-for-gujarat-manufacturing-expansion/29743062" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a></em></div>
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Policy Update | CD / Mobile Loans / Geographic: India</div>
+            <h3 class="news-title daily"><a href="https://www.reuters.com/world/china/india-proposes-forcing-smartphone-makers-give-source-code-security-overhaul-2026-01-11/" target="_blank">Exclusive: India proposes forcing smartphone makers to give source code in security overhaul - Reuters</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>India is reportedly considering a proposal to require smartphone manufacturers to share their source code as part of a security overhaul. This could impact Chinese OEMs, which dominate India's smartphone market, potentially disrupting supply chains and pricing. Our sector should monitor this development for implications on consumer durable loans and mobile loans, as well as potential shifts in customer preferences or vendor partnerships.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.reuters.com/world/china/india-proposes-forcing-smartphone-makers-give-source-code-security-overhaul-2026-01-11/" target="_blank" style="color:#274B7E;text-decoration:underline;">Reuters</a> | 2026-01-12 05:22:00 | India</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.japantimes.co.jp/business/2026/01/12/tech/india-smartphone-source-code-security/" target="_blank" style="color:#274B7E;text-decoration:underline;">The Japan Times</a></em></div>
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Policy Update | CD / Mobile Loans / Geographic: India</div>
+            <h3 class="news-title daily"><a href="https://gulfbusiness.com/indias-9-phone-security-rules-that-tech-firms/" target="_blank">India’s 9 phone security rules that are worrying tech firms - Gulf Business</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>India's proposed cybersecurity compliance rules for smartphones could impact global manufacturers like Apple, Samsung, and Xiaomi, with concerns over proprietary source code reviews and operational challenges. This may lead to supply chain disruptions or increased compliance costs for mobile device manufacturers, potentially affecting product availability and pricing in the Indian market. Monitoring regulatory developments and industry responses will be crucial to assess implications for consumer durable and mobile loan segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://gulfbusiness.com/indias-9-phone-security-rules-that-tech-firms/" target="_blank" style="color:#274B7E;text-decoration:underline;">Gulf Business</a> | 2026-01-12 05:00:46</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | CD / Mobile Loans / Geographic: [Andhra Pradesh, Haryana, Karnataka, Madhya Pradesh, Maharashtra, Tamil Nadu, Uttar Pradesh, Rajasthan]</div>
+            <h3 class="news-title daily"><a href="https://thegamingboardroom.com/2026/01/11/%E2%82%B941863-crore-ecms-push-targets-gaps-in-indias-electronics-supply-chain-80/" target="_blank">₹41,863 Crore ECMS Push Targets Gaps in India’s Electronics Supply Chain - The Gaming Boardroom</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The Centre has approved ₹41,863 crore worth of projects under the Electronics Components Manufacturing Scheme (ECMS), targeting domestic production of critical components like PCBs, lithium-ion cells, and camera modules. This initiative aims to reduce import dependency and strengthen India's electronics supply chain, which is relevant for consumer durable loans and mobile loans. The geographic spread across eight states signals potential demand for logistics, warehousing, and industrial land, which could impact supply chain costs and product availability in these segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://thegamingboardroom.com/2026/01/11/%E2%82%B941863-crore-ecms-push-targets-gaps-in-indias-electronics-supply-chain-80/" target="_blank" style="color:#274B7E;text-decoration:underline;">The Gaming Boardroom</a> | 2026-01-12 00:22:28</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | CD / Tractor / Commercial Vehicle / Geographic: India</div>
+            <h3 class="news-title daily"><a href="https://www.whalesbook.com/news/English/Industrial-GoodsServices/Capital-Goods-Stocks-Tumble-5percent-as-China-Competition-Fears-Mount/6964863d48839f4283826673" target="_blank">Capital Goods Stocks Tumble 5% as China Competition Fears Mount - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Indian capital goods stocks dropped sharply due to fears of eased restrictions on Chinese OEMs bidding for government contracts. This potential policy shift could intensify competition, impacting domestic manufacturers and supply chains relevant to consumer durables, tractors, and commercial vehicles. Watch for further policy announcements and market reactions, as this could influence pricing and availability in key lending segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/Industrial-GoodsServices/Capital-Goods-Stocks-Tumble-5percent-as-China-Competition-Fears-Mount/6964863d48839f4283826673" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-12 05:29:26</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Geographic: India, All Products</div>
+            <h3 class="news-title daily"><a href="https://scanx.trade/stock-market-news/global/market-expert-warns-india-us-trade-stalemate-could-trigger-job-losses-in-key-export-sectors/29751506" target="_blank">Market Expert Warns India-US Trade Stalemate Could Trigger Job Losses in Key Export Sectors - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>A market expert has highlighted the potential for job losses in key export sectors due to the ongoing India-US trade stalemate. This could impact economic stability in regions heavily reliant on export-driven employment, potentially affecting consumer spending and loan repayment capacities. Monitoring trade developments and regional economic signals is advisable for assessing portfolio risk and demand shifts.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/global/market-expert-warns-india-us-trade-stalemate-could-trigger-job-losses-in-key-export-sectors/29751506" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-12 08:24:51</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Geographic: All India</div>
+            <h3 class="news-title daily"><a href="https://indianexpress.com/article/india/coal-fired-power-generation-year-on-year-decline-first-time-10469755/" target="_blank">Coal-fired power generation sees year-on-year decline for the first time in half a century - The Indian Express</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Coal-fired power generation has seen a year-on-year decline for the first time in 50 years, signaling a shift in India's energy mix. This could influence industrial costs and energy availability, particularly for manufacturing and agriculture sectors relevant to our lending segments. Watch for further developments in renewable energy adoption and its impact on sectoral growth and financing needs.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://indianexpress.com/article/india/coal-fired-power-generation-year-on-year-decline-first-time-10469755/" target="_blank" style="color:#274B7E;text-decoration:underline;">The Indian Express</a> | 2026-01-12 17:17:54</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Tractor / Commercial Vehicle / Geographic: India</div>
+            <h3 class="news-title daily"><a href="https://www.autocarpro.in/news/construction-equipment-industry-domestic-sales-down10-amid-infrastructure-slowdown-130529" target="_blank">Construction Equipment Industry Domestic Sales Down 10% Amid Infrastructure Slowdown - Autocar Professional</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The domestic construction equipment industry has seen a 10% decline in sales due to slower government infrastructure project awards and financing constraints. This downturn may impact demand for tractors and commercial vehicles used in construction and logistics sectors. Continued monitoring of infrastructure activity and government project execution will be crucial to assess future recovery trends in these segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.autocarpro.in/news/construction-equipment-industry-domestic-sales-down10-amid-infrastructure-slowdown-130529" target="_blank" style="color:#274B7E;text-decoration:underline;">Autocar Professional</a> | 2026-01-12 10:34:20</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Emerging and Mid Corporate Business Loans / Geographic: Gujarat</div>
+            <h3 class="news-title daily"><a href="https://www.thehawk.in/news/economy-and-business/vibrant-gujarat-regional-conference-helps-build-local-ecosystem-strengthen-msmes-industry" target="_blank">Vibrant Gujarat regional conference helps build local ecosystem, strengthen MSMEs: Industry - thehawk.in</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The Vibrant Gujarat Regional Conference highlighted initiatives to strengthen MSMEs and local industrial ecosystems, with Gujarat expected to contribute significantly to India's $30 trillion economic vision. Discussions included opportunities in the defence sector, with MoUs signed for manufacturing small defence equipment. This signals potential growth in MSME lending and corporate loan opportunities in Gujarat, particularly in manufacturing and defence-related industries.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.thehawk.in/news/economy-and-business/vibrant-gujarat-regional-conference-helps-build-local-ecosystem-strengthen-msmes-industry" target="_blank" style="color:#274B7E;text-decoration:underline;">thehawk.in</a> | 2026-01-12 01:30:00 | Gujarat, India</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.aninews.in/news/national/general-news/msme-conclave-organised-on-day-2-of-vibrant-gujarat-regional-conference20260112172521?amp=1" target="_blank" style="color:#274B7E;text-decoration:underline;">ANI News</a></em></div>
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Geographic: Gujarat, Rajasthan / All Products</div>
+            <h3 class="news-title daily"><a href="https://www.marineinsight.com/shipping-news/adanis-mundra-port-berths-indias-first-fully-laden-vlcc/?utm_source=rss&utm_medium=rss&utm_campaign=adanis-mundra-port-berths-indias-first-fully-laden-vlcc" target="_blank">Adani’s Mundra Port Berths India’s First Fully Laden VLCC - Marine Insight</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Adani Ports has successfully berthed India’s first fully laden VLCC at Mundra Port, enhancing crude oil logistics efficiency and energy security. This development strengthens supply chain reliability for Gujarat and Rajasthan, regions relevant to lending geographies for tractors, commercial vehicles, and consumer durables. The infrastructure upgrade may indirectly support economic growth in these states, warranting monitoring for potential sectoral opportunities or shifts in demand.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.marineinsight.com/shipping-news/adanis-mundra-port-berths-indias-first-fully-laden-vlcc/?utm_source=rss&utm_medium=rss&utm_campaign=adanis-mundra-port-berths-indias-first-fully-laden-vlcc" target="_blank" style="color:#274B7E;text-decoration:underline;">Marine Insight</a> | 2026-01-12 12:40:15</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | LAP / Housing / Geographic: Major Cities (Delhi NCR, Mumbai, etc.)</div>
+            <h3 class="news-title daily"><a href="https://www.whalesbook.com/news/English/Real-Estate/Realty-Stocks-Tumble-as-Developers-Miss-FY26-Sales-Targets/696510c148839f428383875d" target="_blank">Realty Stocks Tumble as Developers Miss FY26 Sales Targets - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Leading real estate developers like Signature Global and Kalpataru reported significant declines in sales bookings for Q3 FY26, with broader housing sales across seven major cities dropping 14% in 2025. This signals potential softness in the housing market, which could impact demand for Loan Against Property (LAP) and housing-related credit products. Monitoring affordability trends and developer performance will be critical for assessing future lending opportunities and risks in urban geographies.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/Real-Estate/Realty-Stocks-Tumble-as-Developers-Miss-FY26-Sales-Targets/696510c148839f428383875d" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-12 15:19:35</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Economic Signal | Housing / LAP / Geographic: India</div>
+            <h3 class="news-title daily"><a href="https://scanx.trade/stock-market-news/stocks/india-s-home-sales-drop-7-from-peak-as-construction-lags-behind-new-launches/29759210" target="_blank">India's Home Sales Drop 7% from Peak as Construction Lags Behind New Launches - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>India's home sales have dropped by 7%, indicating a potential slowdown in the housing market. This could impact demand for loans against property (LAP) and related housing finance products. Monitoring construction activity and sales trends will be crucial to assess further implications for lending in this segment.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/stocks/india-s-home-sales-drop-7-from-peak-as-construction-lags-behind-new-launches/29759210" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-12 10:47:19</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Social Risk | Two Wheeler / Used Car / Commercial Vehicle / Geographic: Delhi</div>
+            <h3 class="news-title daily"><a href="https://www.tribuneindia.com/news/delhi/crime-branch-busts-organised-vehicle-loan-fraud-syndicate-3-held/" target="_blank">Crime Branch busts organised vehicle loan fraud syndicate, 3 held - Tribune India</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Delhi Police has uncovered an organised vehicle loan fraud syndicate using forged identity documents to obtain loans and defaulting deliberately. This highlights vulnerabilities in identity verification processes, which could impact lending segments like two-wheelers, used cars, and commercial vehicles. Monitoring similar fraud patterns and strengthening KYC protocols may be necessary to mitigate risks in our sector.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.tribuneindia.com/news/delhi/crime-branch-busts-organised-vehicle-loan-fraud-syndicate-3-held/" target="_blank" style="color:#274B7E;text-decoration:underline;">Tribune India</a> | 2026-01-11 20:50:37</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Social Risk | Tractor / Agricultural Lending / Geographic: All India</div>
+            <h3 class="news-title daily"><a href="https://www.newsclick.in/wont-tolerate-us-arm-twisting-indian-farmers-says-skm-month-long-protest-plan?amp" target="_blank">Won’t Tolerate US Arm-Twisting of Indian Farmers, Says SKM; Month-Long Protest Plan - newsclick.in</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The Samyukta Kisan Morcha (SKM) has announced month-long protests against central legislations perceived as harmful to farmers, including the Draft Seeds Bill and the Draft Electricity Amendment Bill. These protests could signal heightened agricultural distress and potential disruptions in rural economies, which are key lending geographies for tractor loans and related products. The situation warrants monitoring for potential ripple effects on farmer sentiment and repayment capacity in rural lending segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.newsclick.in/wont-tolerate-us-arm-twisting-indian-farmers-says-skm-month-long-protest-plan?amp" target="_blank" style="color:#274B7E;text-decoration:underline;">newsclick.in</a> | 2026-01-12 07:54:08</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Natural Calamity | Tractor / Geographic: Himachal Pradesh</div>
+            <h3 class="news-title daily"><a href="https://thenewshimachal.com/2026/01/himachal-weather-update-severe-rain-deficit-snow-drought-deepens-crisis-as-crops-and-water-sources-face-growing-stress/" target="_blank">Himachal Weather Update: Severe Rain Deficit, ‘Snow Drought’ Deepens Crisis as Crops and Water Sources Face Growing Stress - The News Himachal</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Himachal Pradesh is facing severe water stress due to an 88% rainfall deficit and declining snowfall, exacerbating drought-like conditions. This impacts agricultural productivity and water availability, which are critical for tractor loans and rural lending in the region. Monitoring crop damage and farmer distress will be essential for assessing potential loan repayment risks and demand shifts.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://thenewshimachal.com/2026/01/himachal-weather-update-severe-rain-deficit-snow-drought-deepens-crisis-as-crops-and-water-sources-face-growing-stress/" target="_blank" style="color:#274B7E;text-decoration:underline;">The News Himachal</a> | 2026-01-12 09:20:43</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Policy Update | Geographic: Kerala / All Products</div>
+            <h3 class="news-title daily"><a href="https://www.outlookmoney.com/amp/story/invest/debt/kerala-asks-centre-to-issue-catastrophe-bonds-to-protect-against-disaster-related-risks-what-are-cat-bonds" target="_blank">Kerala Asks Centre To Issue Catastrophe Bonds To Protect Against Disaster-Related Risks; What Are CAT Bonds? - Outlook Money</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Kerala has proposed the issuance of catastrophe bonds (CAT bonds) to the Union government as a financial tool to manage disaster-related risks. CAT bonds, typically used by insurers, could help governments offset financial losses from natural disasters like floods and earthquakes. While this is still a proposal, it signals potential future policy developments that could influence disaster relief funding and fiscal stability in high-risk geographies like Kerala. Monitoring this discussion is relevant for assessing economic stability in lending geographies and potential shifts in government financial strategies.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.outlookmoney.com/amp/story/invest/debt/kerala-asks-centre-to-issue-catastrophe-bonds-to-protect-against-disaster-related-risks-what-are-cat-bonds" target="_blank" style="color:#274B7E;text-decoration:underline;">Outlook Money</a> | 2026-01-12 14:00:00</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Regulatory Change | Two Wheeler / Three Wheeler / Used Car / Commercial Vehicle / Tractor / Geographic: All India</div>
+            <h3 class="news-title daily"><a href="https://www.cartoq.com/car-news/road-transport-ministry-motor-vehicles-act-amendments-uninsured-vehicles/amp/" target="_blank">No Insurance? Your Vehicle Will Be Seized Under Strict New Motor Vehicle Rules - Cartoq</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The headline suggests stricter enforcement of motor vehicle rules, potentially including vehicle seizure for lack of insurance. This could impact loan customers across vehicle segments, as insurance is often a prerequisite for financing. Monitoring implementation details and geographic enforcement patterns will be crucial to assess implications for delinquency risk and customer compliance.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.cartoq.com/car-news/road-transport-ministry-motor-vehicles-act-amendments-uninsured-vehicles/amp/" target="_blank" style="color:#274B7E;text-decoration:underline;">Cartoq</a> | 2026-01-12 02:28:57</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Regulatory Change | All Products</div>
+            <h3 class="news-title daily"><a href="https://the420.in/sma-special-mention-account-credit-score-npa-risk/" target="_blank">From SMA to NPA: The Slippery Slope - The420.in</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>The article highlights the importance of SMA (Special Mention Account) classifications under RBI guidelines, which serve as early warning signals for repayment stress before accounts turn into NPAs. This is relevant for our sector as it underscores the need for proactive monitoring of overdue accounts to mitigate risks and maintain portfolio health. Watching for regulatory updates or industry trends in SMA reporting practices could be beneficial for strategic planning.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://the420.in/sma-special-mention-account-credit-score-npa-risk/" target="_blank" style="color:#274B7E;text-decoration:underline;">The420.in</a> | 2026-01-12 15:39:24</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Regulatory Change | Personal Loan / Mobile Loans / All Products</div>
+            <h3 class="news-title daily"><a href="https://www.moneycontrol.com/news/business/personal-finance/data-misuse-in-digital-lending-lessons-from-delhi-high-court-pil-13769023.html/amp" target="_blank">Data misuse in digital lending: Lessons from Delhi High Court PIL - Moneycontrol</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>A PIL in the Delhi High Court has raised concerns about data misuse in digital lending platforms, highlighting potential regulatory scrutiny in the sector. This is relevant for our unsecured and digital loan products, as stricter compliance measures or guidelines may emerge. Monitoring developments and potential policy changes will be crucial to ensure alignment with regulatory expectations.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.moneycontrol.com/news/business/personal-finance/data-misuse-in-digital-lending-lessons-from-delhi-high-court-pil-13769023.html/amp" target="_blank" style="color:#274B7E;text-decoration:underline;">Moneycontrol</a> | 2026-01-12 11:35:04 | Delhi</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Competitor Move | Housing / LAP / Geographic: Hyderabad</div>
+            <h3 class="news-title daily"><a href="https://observervoice.com/bank-of-baroda-partners-with-credai-hyderabad-for-2026-property-show-173102/" target="_blank">Bank of Baroda Partners with CREDAI Hyderabad for 2026 Property Show - Observer Voice</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Bank of Baroda has partnered with CREDAI Hyderabad as the Exclusive Presenting Partner for the 2026 Property Show, showcasing RERA-approved residential projects and offering instant in-principle home loan sanctions. This move strengthens their presence in Hyderabad's flourishing real estate market and positions them as a key enabler for homebuyers and developers. This strategic collaboration highlights the growing focus on customized financing solutions in key urban housing markets, which could influence competitive dynamics in the LAP and housing loan segments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://observervoice.com/bank-of-baroda-partners-with-credai-hyderabad-for-2026-property-show-173102/" target="_blank" style="color:#274B7E;text-decoration:underline;">Observer Voice</a> | 2026-01-12 11:37:25 | Hyderabad</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Competitor Move | All Products</div>
+            <h3 class="news-title daily"><a href="https://www.whalesbook.com/news/English/BankingFinance/India-IPO-Fees-Skyrocket-as-Deal-Volume-Hits-Record-High/69647b5748839f4283825083" target="_blank">India IPO Fees Skyrocket as Deal Volume Hits Record High - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Kotak Mahindra Bank has emerged as one of the top advisors in India's record-breaking IPO market, earning $32.7 million in underwriting fees. The surge in IPO activity and higher fee structures signal a maturing capital market, with companies increasingly seeking strategic partners for post-listing equity management. While this development is not directly tied to lending, it reflects Kotak's growing influence in financial advisory, which could impact competitive positioning in broader financial services.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/BankingFinance/India-IPO-Fees-Skyrocket-as-Deal-Volume-Hits-Record-High/69647b5748839f4283825083" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-12 04:48:59</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Competitor Move | Two Wheeler / Used Car / Commercial Vehicle / Geographic: All India</div>
+            <h3 class="news-title daily"><a href="https://scanx.trade/stock-market-news/stocks/maruti-suzuki-india-partners-with-indian-oil-corporation-to-establish-vehicle-service-points-at-iocl-fuel-stations/29750650" target="_blank">Maruti Suzuki India Partners With Indian Oil Corporation To Establish Vehicle Service Points At IOCL Fuel Stations - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Maruti Suzuki India has partnered with Indian Oil Corporation to set up vehicle service points at IOCL fuel stations. This move could enhance customer convenience and strengthen Maruti Suzuki's ecosystem for vehicle owners, indirectly influencing demand for financing of Maruti vehicles. Watch for similar partnerships by competitors or potential impacts on vehicle sales trends.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/stocks/maruti-suzuki-india-partners-with-indian-oil-corporation-to-establish-vehicle-service-points-at-iocl-fuel-stations/29750650" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-12 08:17:36</div>
+            
+        </div>
+        
+        <div class="grid-item daily-news">
+            <div class="risk-badge" style="background-color: #40874B;">RELEVANCE: 6/10</div>
+            <div class="news-category">Competitor Move | Two Wheeler / Geographic: All India</div>
+            <h3 class="news-title daily"><a href="https://www.autocarindia.com/bike-news-amp/ultraviolette-showcases-new-technology-at-ces-438784" target="_blank">Ultraviolette showcases new technology at CES 2026 - Autocar India</a></h3>
+            <div class="impact-section">
+                <strong>BRIEF</strong>
+                <p>Ultraviolette showcased its new AI-powered voice assistant technology at CES 2026, aimed at enhancing safety and user experience in two-wheelers. This innovation, developed in partnership with Soundhound AI, could set a benchmark for technology adoption in the two-wheeler segment, particularly electric vehicles. While still under development, its potential launch in upcoming models like the Tesseract or Shockwave could influence consumer expectations and competitive positioning in the premium two-wheeler market.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.autocarindia.com/bike-news-amp/ultraviolette-showcases-new-technology-at-ces-438784" target="_blank" style="color:#274B7E;text-decoration:underline;">Autocar India</a> | 2026-01-12 08:27:13</div>
+            
+        </div>
+        
+    </div>
+    
+    <div class="footer">
+        <div class="footer-center">
+            TVS Credit Services Ltd. - Enterprise Risk Management Centre | 
+            Risk Alerts: 17 | Daily Updates: 34 | 
+            Total Tokens: 83,781
+        </div>
+    </div>
+</body>
+</html>
