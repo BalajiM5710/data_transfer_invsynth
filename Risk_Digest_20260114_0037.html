@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 10mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Arial', sans-serif;
+            background-color: #ffffff;
+            padding: 15px;
+            font-size: 9pt;
+            line-height: 1.3;
+        }
+        
+        .header {
+            background: #ffffff;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #274B7E;
+        }
+        
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .header-left {
+            font-size: 9pt;
+            color: #333;
+            width: 25%;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .header-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+        }
+        
+        .header-center h1 {
+            font-size: 18pt;
+            color: #274B7E;
+            margin-bottom: 2px;
+            text-align: center;
+        }
+        
+        .header-center .subtitle {
+            font-size: 9pt;
+            color: #555;
+            text-align: center;
+        }
+        
+        .header-right {
+            width: 25%;
+            text-align: right;
+            vertical-align: top;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #274B7E 0%, #40874B 100%);
+            color: #ffffff;
+            padding: 10px 20px;
+            margin: 20px 0 10px 0;
+            font-size: 12pt;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+        
+        .executive-summary {
+            background-color: #f8f8f8;
+            border-left: 4px solid #274B7E;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            font-size: 9.5pt;
+            line-height: 1.5;
+        }
+        
+        .executive-summary.daily-news {
+            border-left-color: #40874B;
+        }
+        
+        .executive-summary strong {
+            color: #274B7E;
+            font-weight: 600;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .grid-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #ffffff;
+            position: relative;
+        }
+        
+        .grid-item.risk-critical {
+            border-left: 3px solid #d32f2f;
+        }
+        
+        .grid-item.risk-high {
+            border-left: 3px solid #ff6f00;
+        }
+        
+        .grid-item.risk-moderate {
+            border-left: 3px solid #274B7E;
+        }
+        
+        .grid-item.daily-news {
+            border-left: 3px solid #40874B;
+        }
+        
+        .risk-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 7pt;
+            line-height: 1;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .daily-badge {
+            background-color: #40874B;
+        }
+        
+        .news-category {
+            font-size: 7.5pt;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            padding-right: 140px;
+        }
+        
+        .news-title {
+            font-size: 10pt;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+        
+        .news-title a {
+            text-decoration: none;
+            color: #d32f2f;
+        }
+        
+        .news-title.daily a {
+            color: #274B7E;
+        }
+        
+        .news-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .impact-section {
+            margin-bottom: 8px;
+        }
+        
+        .impact-section strong {
+            display: block;
+            font-size: 8pt;
+            color: #274B7E;
+            margin-bottom: 4px;
+        }
+        
+        .impact-section p {
+            font-size: 8.5pt;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .source-info {
+            font-size: 7.5pt;
+            color: #888;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .source-info a {
+            color: #274B7E;
+            text-decoration: underline;
+        }
+        
+        .footer {
+            margin-top: 10px;
+            padding-top: 8px;
+            background: linear-gradient(135deg, #274B7E 0%, #40874B 100%);
+            padding: 12px 30px;
+            text-align: center;
+            font-size: 8pt;
+            color: #ffffff;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    <div><strong>14 January 2026</strong></div>
+                    <div>Generated at 12:37 AM</div>
+                </td>
+                <td class="header-center">
+                    <h1>Risk Intelligence Digest</h1>
+                    <div class="subtitle">Executive Early Warning System</div>
+                </td>
+                <td class="header-right">
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <!-- RISK ALERTS SECTION -->
+    <div class="section-header">🚨 CRITICAL RISK ALERTS</div>
+    <div class="executive-summary">
+        Here’s a concise executive summary for C-suite leadership, based on the provided risk alerts:
+
+<strong>Subject: Elevated Risk Environment – TVS Credit Business</strong>
+
+This summary highlights a critical escalation in operational risk across the TVS Credit portfolio. Currently, <strong>14 high-risk alerts</strong> have been identified, representing a significant increase in potential exposures. <strong>The top two risk themes</strong> are centered around heightened competitive pressures within the NBFC sector, driven by anticipated regulatory changes (specifically regarding gold loan NBFCs and potential interest rate caps) and increased competitor activity – notably from firms like Muthoot Fincorp, IIFL, and Equitas SFB.  A second key theme is the rapid expansion of auto lending, evidenced by rising approval rates and increased subprime activity, creating potential credit quality vulnerabilities. <strong>Geographically, the alerts are concentrated within the vehicle and gold loan segments.</strong>  Furthermore, the industry’s reliance on servicing infrastructure, as highlighted by the Tricolor Auto case, presents an operational vulnerability.  We recommend immediate review of our risk mitigation strategies, particularly focusing on portfolio diversification, enhanced credit underwriting standards, and proactive monitoring of competitor actions.
+    </div>
+    <div class="grid-container">
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 8/10</div>
+            <div class="news-category">Regulatory / Credit</div>
+            <h3 class="news-title"><a href="https://observervoice.com/budget-2026-key-recommendations-for-fm-sitharaman-to-support-gold-loan-nbfcs-173189/" target="_blank">Budget 2026: Key Recommendations for FM Sitharaman to Support Gold Loan NBFCs - Observer Voice</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The proposed Budget recommendations, particularly the potential for priority sector lending status for gold loan NBFCs, represent a significant development for the sector. This could substantially alter the competitive landscape, potentially reducing funding costs for these institutions and enabling them to expand their lending activities. The government’s focus on digital infrastructure and UPI integration aligns with broader trends in financial inclusion. However, the impact on TVS Credit Services Ltd. and other gold loan NBFCs will depend on the specific details of the PSL implementation and the extent to which the government’s initiatives are adopted by the broader industry. We will continue to monitor developments closely.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://observervoice.com/budget-2026-key-recommendations-for-fm-sitharaman-to-support-gold-loan-nbfcs-173189/" target="_blank" style="color:#274B7E;text-decoration:underline;">Observer Voice</a> | 2026-01-13 04:17:03</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 8/10</div>
+            <div class="news-category">Market / Political</div>
+            <h3 class="news-title"><a href="https://www.indiatoday.in/business/budget/story/budget-2026-nbfcs-call-for-liquidity-support-faster-recovery-and-tax-relief-2851111-2026-01-13" target="_blank">Budget 2026: NBFCs call for liquidity support, faster recovery and tax relief - India Today</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The industry is anticipating increased policy support from the upcoming Budget 2026-27, driven by the broader economic goals of India’s $5 trillion target and the Viksit Bharat 2047 vision. NBFCs, particularly those focused on MSMEs and self-employed borrowers, are seeking liquidity support through potential refinancing windows, expanded credit guarantees, and tax relief measures. While growth projections for the sector remain positive – particularly in MSME and gold loan segments – concerns around portfolio recovery, particularly in microfinance, are acknowledged. This reflects a broader industry-level discussion regarding the continued role of NBFCs in supporting economic growth.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.indiatoday.in/business/budget/story/budget-2026-nbfcs-call-for-liquidity-support-faster-recovery-and-tax-relief-2851111-2026-01-13" target="_blank" style="color:#274B7E;text-decoration:underline;">India Today</a> | 2026-01-13 07:33:25</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.whalesbook.com/news/English/BankingFinance/NBFCs-Demand-Budget-2026-Support-Liquidity-Tax-Relief-Top-List/6965ffe848839f428387ed84" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a></em></div>
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13269&Mode=0" target="_blank">Foreign Exchange Management (Guarantees) Regulations, 2026</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The RBI has issued amendments to the Foreign Exchange Management (Guarantees) Regulations, 2026. These changes introduce stricter requirements for guarantees provided to overseas entities facilitating cross-border lending activities. Specifically, the regulations now mandate enhanced due diligence and reporting standards for NBFCs engaging in these transactions. This sector-wide development necessitates a review of existing guarantee structures and operational processes to ensure ongoing compliance. We are monitoring the full impact and guidance from the RBI to determine necessary adjustments.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13269&Mode=0" target="_blank" style="color:#274B7E;text-decoration:underline;">Reserve Bank of India</a> | Mumbai</div>
+            <div style='margin-top:6px;font-size:7.5pt;color:#666;'><em>Also reported by: <a href="https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13268&Mode=0" target="_blank" style="color:#274B7E;text-decoration:underline;">Reserve Bank of India</a></em></div>
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://www.cnbctv18.com/business/finance/rbi-moves-to-clear-confusion-on-nbfc-capital-rules-seeks-public-views-ws-l-19820387.htm" target="_blank">RBI seeks public feedback on NBFC, ARC capital rule tweaks - CNBC TV18</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>We have received notification of proposed changes to RBI regulations impacting NBFC capital adequacy and concentration risk management. These amendments, affecting NBFCs, ARCs, and related entities, aim to refine the calculation of Owned Fund and Tier 1 Capital. The RBI is actively soliciting feedback on these proposed changes until January 28, 2026.  This development warrants close monitoring as adjustments to capital requirements could influence our lending strategies and portfolio management.  Sector-wide relevance exists due to the broad scope of the proposed changes.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.cnbctv18.com/business/finance/rbi-moves-to-clear-confusion-on-nbfc-capital-rules-seeks-public-views-ws-l-19820387.htm" target="_blank" style="color:#274B7E;text-decoration:underline;">CNBC TV18</a> | 2026-01-13 16:01:56</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market / Credit</div>
+            <h3 class="news-title"><a href="https://scanx.trade/stock-market-news/corporate-actions/sammaan-capital-limited-completes-timely-interest-payment-of-348-25-lacs-on-non-convertible-debentures/29859229" target="_blank">Sammaan Capital Limited Completes Timely Interest Payment of ₹348.25 Lacs on Non-Convertible Debentures - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Sammaan Capital Ltd. has completed timely interest payments on its Non-Convertible Debentures (NCBs). This demonstrates responsible debt management within the NBFC sector. The successful payment execution is relevant to all lenders issuing debt instruments, particularly those focused on corporate lending segments. It reinforces the importance of maintaining strong financial health and adhering to payment schedules within the broader lending landscape.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/corporate-actions/sammaan-capital-limited-completes-timely-interest-payment-of-348-25-lacs-on-non-convertible-debentures/29859229" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-13 14:16:33</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market / Operational</div>
+            <h3 class="news-title"><a href="https://www.whalesbook.com/news/English/BankingFinance/NBFC-Sector-Shows-Mixed-Growth-AB-Capital-Chola-Finance-Top-Picks/6965a59148839f4283870399" target="_blank">NBFC Sector Shows Mixed Growth; AB Capital, Chola Finance Top Picks - Whalesbook</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The NBFC sector is currently experiencing a bifurcated growth pattern, with some segments – particularly gold and vehicle financing – demonstrating robust expansion driven by factors like GST cuts and pent-up demand. Simultaneously, microfinance institutions are facing subdued growth due to high rejection rates. This divergence highlights potential operational challenges across the sector. We are observing a trend of easing funding costs and resilient asset quality, which is supporting overall earnings growth, as noted by analysts like Motilal Oswal. However, competition within the housing finance segment is intensifying, potentially impacting NIMs for larger players.  This warrants continued monitoring of sector-wide trends and specific lender performance.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.whalesbook.com/news/English/BankingFinance/NBFC-Sector-Shows-Mixed-Growth-AB-Capital-Chola-Finance-Top-Picks/6965a59148839f4283870399" target="_blank" style="color:#274B7E;text-decoration:underline;">Whalesbook</a> | 2026-01-13 01:54:38</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory / Credit</div>
+            <h3 class="news-title"><a href="http://www.msn.com/en-in/money/topstories/iifl-finance-appoints-former-rbi-deputy-governor-b-p-kanungo-as-board-chairman/ar-AA1SIrKZ?apiversion=v2&domshim=1&noservercache=1&noservertelemetry=1&batchservertelemetry=1&renderwebcomponents=1&wcseo=1" target="_blank">IIFL Finance appoints former RBI deputy governor B P Kanungo as board chairman - MSN</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The appointment of former RBI Deputy Governor B.P. Kanungo to the board of IIFL Finance is attracting sector-wide attention. This move signals a heightened level of regulatory scrutiny within the non-bank financial sector, particularly concerning lending practices and asset quality. Given the recent challenges faced by some NBFCs, this appointment suggests a potential intensification of regulatory oversight and a focus on strengthening risk management frameworks across the industry. We will continue to monitor developments closely and assess their broader implications for the competitive landscape.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="http://www.msn.com/en-in/money/topstories/iifl-finance-appoints-former-rbi-deputy-governor-b-p-kanungo-as-board-chairman/ar-AA1SIrKZ?apiversion=v2&domshim=1&noservercache=1&noservertelemetry=1&batchservertelemetry=1&renderwebcomponents=1&wcseo=1" target="_blank" style="color:#274B7E;text-decoration:underline;">MSN</a> | 2026-01-13 05:43:21</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Operational / Credit</div>
+            <h3 class="news-title"><a href="https://www.autofinancenews.net/allposts/risk-management/podcast-tricolor-collapse-servicing-transition-sparks-industry-changes/" target="_blank">Podcast: Tricolor collapse, servicing transition sparks industry changes - Auto Finance News</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Recent developments surrounding Tricolor Auto’s bankruptcy and subsequent investigation highlight vulnerabilities within asset servicing and data verification processes. The reliance on manual overseas data matching, as detailed by industry expert Larry Chiavaro, presents a potential risk across the broader auto finance sector, particularly concerning the accuracy of loan portfolios and securitization transactions. This situation underscores the importance of robust automated verification systems and stringent oversight of third-party servicing agents. We are monitoring sector-wide relevance regarding data management practices and the potential impact on asset quality within auto loan portfolios.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.autofinancenews.net/allposts/risk-management/podcast-tricolor-collapse-servicing-transition-sparks-industry-changes/" target="_blank" style="color:#274B7E;text-decoration:underline;">Auto Finance News</a> | 2026-01-12 21:46:42</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market / Competitive</div>
+            <h3 class="news-title"><a href="https://news.dealershipguy.com/p/auto-loan-approval-rates-climb-as-credit-conditions-ease-in-december-2026-01-13" target="_blank">Auto loan approval rates climb as credit conditions ease in December - Car Dealership Guy News</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>We’ve observed a notable increase in auto loan approval rates across the sector, driven primarily by expanded subprime lending. This shift, as highlighted by Cox Automotive’s data, reflects a broader trend of lenders adjusting their risk appetite following a period of caution. The rise in longer loan terms – specifically exceeding 72 months – indicates a potential shift in consumer demand and affordability dynamics. While this increased access to credit presents opportunities for dealers, particularly in the used vehicle segment, it warrants careful monitoring of asset quality and potential increases in default rates within the broader consumer lending landscape. This trend is relevant to NBFCs and the used car portfolio.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://news.dealershipguy.com/p/auto-loan-approval-rates-climb-as-credit-conditions-ease-in-december-2026-01-13" target="_blank" style="color:#274B7E;text-decoration:underline;">Car Dealership Guy News</a> | 2026-01-13 14:33:00</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market</div>
+            <h3 class="news-title"><a href="https://www.cbtnews.com/auto-credit-access-hit-2-year-high/" target="_blank">Auto credit access hit 2-year high, Cox Automotive reports - CBT News</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Increased auto credit availability, as reported by Cox Automotive, indicates a strengthening consumer demand for vehicle financing. The rise in approval rates and favorable pricing, coupled with longer loan terms, suggests a potential shift in affordability dynamics within the auto lending market. This trend is relevant to NBFCs involved in auto loan portfolios, particularly those focused on used vehicle financing. We are observing a competitive landscape where lenders are responding to consumer demand by adjusting lending standards and offering more attractive financing terms.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.cbtnews.com/auto-credit-access-hit-2-year-high/" target="_blank" style="color:#274B7E;text-decoration:underline;">CBT News</a> | 2026-01-13 16:35:58</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market</div>
+            <h3 class="news-title"><a href="https://www.livemint.com/market/bonds/india-bond-yields-bloomberg-index-inclusion-foreign-inflows-market-impact/amp-11768299074452.html" target="_blank">Bond yields jump as Bloomberg defers India’s inclusion in global index - Mint</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>The deferral of India’s inclusion in the Bloomberg Global Aggregate Index is generating significant market pressure on government bond yields. This unexpected delay, driven by operational considerations highlighted by Bloomberg, has triggered a broad unwinding of positions by traders. While the immediate impact on TVS Credit Services Ltd. is limited, the broader sector-wide implications – specifically increased volatility in fixed income markets – warrant close monitoring. We are observing a shift in market sentiment and anticipate potential competitive pressure on pricing across the lending landscape.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.livemint.com/market/bonds/india-bond-yields-bloomberg-index-inclusion-foreign-inflows-market-impact/amp-11768299074452.html" target="_blank" style="color:#274B7E;text-decoration:underline;">Mint</a> | 2026-01-13 12:18:24</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Market / Regulatory</div>
+            <h3 class="news-title"><a href="https://scanx.trade/stock-market-news/corporate-actions/aditya-birla-real-estate-receives-bse-approval-for-debenture-trust-deed-amendment/29843608" target="_blank">Aditya Birla Real Estate Receives BSE Approval for Debenture Trust Deed Amendment - scanx.trade</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>We have observed that Aditya Birla Real Estate has received BSE approval for a debenture trust deed amendment. This action, relating to their debt restructuring, is relevant to the broader real estate financing landscape and, by extension, to consumer lending segments. The amendment suggests potential shifts in Aditya Birla’s capital structure and repayment obligations. We will continue to monitor developments in this area for any sector-wide implications regarding financing terms and conditions for related asset classes.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://scanx.trade/stock-market-news/corporate-actions/aditya-birla-real-estate-receives-bse-approval-for-debenture-trust-deed-amendment/29843608" target="_blank" style="color:#274B7E;text-decoration:underline;">scanx.trade</a> | 2026-01-13 09:57:09</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Operational / Market / Reputation</div>
+            <h3 class="news-title"><a href="https://etedge-insights.com/technology/fintech/when-intelligence-meets-infra-why-indias-fintech-surge-needs-a-security-backbone/" target="_blank">When intelligence meets infra: Why India's fintech surge needs a security backbone - ET Edge Insights - ET Edge Insights</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Recent industry analysis highlights the accelerated growth of fintech lending in India, particularly within the personal loan segment. This expansion, fueled by digital public infrastructure and AI adoption, presents a significant increase in the attack surface for fintech companies and traditional BFSI players alike. The report emphasizes the interconnected nature of modern fintech stacks – reliant on third-party APIs and autonomous decisioning engines – creating vulnerabilities to threats such as phishing, account takeover fraud, and synthetic identities. Sector-wide, this trend underscores the importance of robust cybersecurity measures and data governance frameworks within the lending ecosystem.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://etedge-insights.com/technology/fintech/when-intelligence-meets-infra-why-indias-fintech-surge-needs-a-security-backbone/" target="_blank" style="color:#274B7E;text-decoration:underline;">ET Edge Insights</a> | 2026-01-13 03:35:22</div>
+            
+        </div>
+        
+        <div class="grid-item risk-high">
+            <div class="risk-badge" style="background-color: #ff6f00;">RISK SCORE: 7/10</div>
+            <div class="news-category">Regulatory</div>
+            <h3 class="news-title"><a href="https://www.bloomberg.com/news/articles/2026-01-13/jpmorgan-says-everything-on-table-to-fight-10-credit-card-cap" target="_blank">JPMorgan Says ‘Everything’ on Table to Fight 10% Credit Card Cap - Bloomberg.com</a></h3>
+            <div class="impact-section">
+                <strong>IMPACT ANALYSIS</strong>
+                <p>Recent reports indicate a potential shift in regulatory policy regarding credit card interest rates, with a proposed 10% cap being discussed. This development, if enacted, could significantly impact the broader financial services sector, particularly institutions heavily reliant on credit card revenue. The potential for altered pricing models and operational adjustments warrants close monitoring. This aligns with broader sector-wide discussions regarding consumer lending regulations.</p>
+            </div>
+            <div class="source-info">Primary Source: <a href="https://www.bloomberg.com/news/articles/2026-01-13/jpmorgan-says-everything-on-table-to-fight-10-credit-card-cap" target="_blank" style="color:#274B7E;text-decoration:underline;">Bloomberg.com</a> | 2026-01-13 17:21:27</div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- DAILY NEWS SECTION -->
+    <div class="section-header page-break">📰 DAILY FINANCE & POLITICAL NEWS UPDATE</div>
+    <div class="executive-summary daily-news">
+        No significant business updates captured.
+    </div>
+    <div class="grid-container">
+        <div style="padding:20px;text-align:center;color:#666;">No significant business updates captured.</div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-center">
+            TVS Credit Services Ltd. - Enterprise Risk Management Centre | 
+            Risk Alerts: 14 | Daily Updates: 0 | 
+            Total Tokens: 22,490
+        </div>
+    </div>
+</body>
+</html>
